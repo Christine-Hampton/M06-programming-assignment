@@ -1,0 +1,29 @@
+#13.1 write the current date as a sting to the txt file today.txt
+from datetime import date
+
+# get the current date
+today = date.today()
+
+# convert the date to a string 
+today_string = today.strftime("%y-%m-%d")
+
+# write the date to a text file
+with open("today.txt", "w") as file:
+    file.write(today_string)
+
+#13.2 read the text file today.txt into the string today_string
+
+# read the date from the text file
+with open("today.txt", "r") as file:
+    today_string = file.read()
+
+#13.3 parse the date from today string
+from datetime import datetime 
+
+# parse the date string back to a date object
+parsed_date = datetime.strptime(today_string, "%y-%m-%d").date()
+
+# for confirmation. pring the parsed date 
+print("Parsed Date:", parsed_date)
+
+
